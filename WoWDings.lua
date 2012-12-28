@@ -1,6 +1,6 @@
 -- WoWDings
--- Version 1.1
--- By Lenwë from EU-Sargeras
+-- Version @project-version@
+-- By @project-author@
 
 WoWDings_OldSendChatMessage = SendChatMessage
 
