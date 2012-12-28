@@ -1,0 +1,11 @@
+==v1.2==
+
+* Now works over Battle.net discussion.
+
+==v1.1==
+
+* Removed math.randomseed() calls
+
+==v1.0==
+
+* Initial release
