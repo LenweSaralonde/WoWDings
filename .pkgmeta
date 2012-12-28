@@ -1,4 +1,8 @@
 package-as: WowDings
 
+manual-changelog:
+    filename: CHANGELOG.txt
+    markup-type: creole
+	
 ignore:
-    - Changelog-WowDings-@project-version@.txt
+    - CHANGELOG.txt
