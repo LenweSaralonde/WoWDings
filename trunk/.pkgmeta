@@ -1,6 +1,4 @@
 package-as: WowDings
 
 ignore:
-    - CHANGELOG.txt
-
-manual-changelog: CHANGELOG.txt	
+    - Changelog-WowDings-@project-version@.txt
