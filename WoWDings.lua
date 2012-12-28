@@ -2,13 +2,61 @@
 -- Version @project-version@
 -- By @project-author@
 
-WoWDings_OldSendChatMessage = SendChatMessage
-
-
+-- SendChatMessage hook function
+-- @param string msg
+-- @param string system
+-- @param string language
+-- @param string target
 function WoWDings_SendChatMessage(msg, system, language, target)
+	WoWDings_OldSendChatMessage(WoWDings_Transform(msg), system, language, target)
+end
+
+-- hook SendChatMessage function
+WoWDings_OldSendChatMessage = SendChatMessage
+SendChatMessage = WoWDings_SendChatMessage
+
+-- BNSendWhisper hook function
+-- @param integer id
+-- @param string  text
+function WoWDings_BNSendWhisper(id, text)
+	WoWDings_OldBNSendWhisper(id, WoWDings_Transform(text))
+end
+
+-- hook BNSendWhisper function
+WoWDings_OldBNSendWhisper = BNSendWhisper
+BNSendWhisper = WoWDings_BNSendWhisper
+
+
+-- BNSendConversationMessage hook function
+-- @param integer channel
+-- @param string  text
+function WoWDings_BNSendConversationMessage(channel, text)
+	WoWDings_OldBNSendConversationMessage(channel, WoWDings_Transform(text))
+end
+
+-- hook BNSendConversationMessage function
+WoWDings_OldBNSendConversationMessage = BNSendConversationMessage
+BNSendConversationMessage = WoWDings_BNSendConversationMessage
+
+
+-- BNSetCustomMessage hook function
+-- @param string text
+function WoWDings_BNSetCustomMessage(text)
+	WoWDings_OldBNSetCustomMessage(WoWDings_Transform(text))
+end
+
+-- hook BNSetCustomMessage function
+WoWDings_OldBNSetCustomMessage = BNSetCustomMessage
+BNSetCustomMessage = WoWDings_BNSetCustomMessage
+
+
+-- Perform text replacements
+-- @param string msg
+-- @return string
+function WoWDings_Transform(msg)
 	local range, codes, code, symbol, ranges
 
-	if string.find(msg, "^RU") then
+	if string.find(msg, "^RU%s+") then
 		msg = string.gsub(msg, "^RU%s*", '')
 		if system ~= 'SAY' and system ~= 'YELL' then
 			msg = WoWDings_Russianize(msg)
@@ -29,12 +77,13 @@ function WoWDings_SendChatMessage(msg, system, language, target)
 		end
 	end
 
-	WoWDings_OldSendChatMessage(msg, system, language, target)
+	return msg
 end
 
-SendChatMessage = WoWDings_SendChatMessage
 
-
+-- Russianize text, because it's fun
+-- @param string msg
+-- @return string
 function WoWDings_Russianize(msg)
 	local find, replace, x
 
@@ -48,7 +97,8 @@ function WoWDings_Russianize(msg)
 	return msg
 end
 
-SlashCmdList["WOWDINGS"] = function(s)
+-- /wd command
+SlashCmdList["WOWDINGS"] = function()
 	local rangeName, range, ranges, codes, code, symbol, str, strCodes, i
 
 	for rangeName, ranges in pairs(WOWDINGS) do
@@ -74,5 +124,6 @@ SlashCmdList["WOWDINGS"] = function(s)
 	end
 end
 
+-- Command aliases
 SLASH_WOWDINGS1 = "/wowdings"
 SLASH_WOWDINGS2 = "/wd"
