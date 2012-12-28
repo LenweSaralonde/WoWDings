@@ -1,8 +1,11 @@
-* TOC update for WoW 5.1.0
-* TOC update for WoW 5.0.4
-* TOC update for WoW 4.3
-* TOC update for WoW 4.2
-* Updated TOC for WoW 4.1
-* Updated TOC
-* Updated TOC
+==v1.2==
+
+* Now works over Battle.net discussion.
+
+==v1.1==
+
 * Removed math.randomseed() calls
+
+==v1.0==
+
+* Initial release
