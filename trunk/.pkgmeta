@@ -1,1 +1,4 @@
 package-as: WowDings
+
+ignore:
+    - Changelog*.txt
