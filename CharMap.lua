@@ -127,8 +127,8 @@ WOWDINGS_RUSSIAN = {
 }
 
 WOWDINGS_LOGO = "√V☺√V Đ↑ŋg$"
-WOWDINGS_URL  = "http://www.lenwe.org/addons/wowdings"
-WOWDINGS_AD   = "Download "..WOWDINGS_LOGO.." at "..WOWDINGS_URL.." :)"
+WOWDINGS_URL  = "http://www.curse.com/addons/wow/wo-w-dings"
+WOWDINGS_AD   = "Download "..WOWDINGS_LOGO.." from "..WOWDINGS_URL.." :)"
 
 if ( GetLocale() == "frFR" ) then
     WOWDINGS_AD   = "Téléchargez "..WOWDINGS_LOGO.." sur "..WOWDINGS_URL.." :)"
