@@ -63,7 +63,51 @@ function WoWDings_Transform(msg)
 		end
 	end
 
+	-- Addon download link
 	msg = string.gsub(msg, "%(WD%)", WOWDINGS_AD)
+
+	-- Current location
+	local location = GetRealZoneText()
+	if (GetSubZoneText() ~= "") then
+		location = location .. ', ' .. GetSubZoneText()
+	end
+	msg = string.gsub(msg, "%(here%)", location)
+
+	-- Full target info
+	local target, realm = UnitName('target')
+	if (target ~= nil) then
+		if (realm ~= nil) then
+			target = target .. '-' .. realm
+		end
+
+		if (UnitIsPlayer('target')) then
+			local race = UnitRace('target')
+			if (race ~= nil) then
+				target = target .. ' ' .. race
+			end
+
+			local class = UnitClass('target')
+			if (class ~= nil) then
+				target = target .. ' ' .. class
+			end
+
+			local level = UnitLevel('target')
+			if (level ~= nil) then
+				target = target .. ' lvl ' .. level
+			end
+
+			local guild = GetGuildInfo('target')
+			if (guild ~= nil) then
+				target = target .. ' <' .. guild .. '>'
+			end
+		end
+
+		msg = string.gsub(msg, "%(target%)", target)
+		msg = string.gsub(msg, "%(t%)",      target)
+	else
+		msg = string.gsub(msg, "%(target%)", '%%t')
+		msg = string.gsub(msg, "%(t%)",      '%%t')
+	end
 
 	if system ~= 'SAY' then
 		for _, ranges in pairs(WOWDINGS) do
@@ -122,6 +166,12 @@ SlashCmdList["WOWDINGS"] = function()
 		end
 		DEFAULT_CHAT_FRAME:AddMessage(str)
 	end
+
+	rangeName = "|cFFFFFF00Dynamic Shortcuts|r"
+	DEFAULT_CHAT_FRAME:AddMessage("========== "..rangeName.." ==========")
+	DEFAULT_CHAT_FRAME:AddMessage("|cFFFFFF00Full target info|r: |cFF00FF00(t) (target)|r")
+	DEFAULT_CHAT_FRAME:AddMessage("|cFFFFFF00Current location|r: |cFF00FF00(here)|r")
+	DEFAULT_CHAT_FRAME:AddMessage("|cFFFFFF00WoWDings download link|r: |cFF00FF00(WD)|r")
 end
 
 -- Command aliases
