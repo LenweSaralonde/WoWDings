@@ -1,0 +1,11 @@
+## Interface: 60100
+## Title: WoW Dings
+## Version: @project-version@
+## Author: @project-author@
+## Notes: Allows you to send special characters into chat messages.
+
+## Character table
+CharMap.lua
+
+## Main code
+WoWDings.lua
