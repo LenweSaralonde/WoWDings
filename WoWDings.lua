@@ -56,6 +56,12 @@ BNSetCustomMessage = WoWDings_BNSetCustomMessage
 function WoWDings_Transform(msg)
 	local range, codes, code, symbol, ranges
 
+	-- Role Play Broadcasting message: do not transform
+	if string.find(msg, "^RPB%d+~") then
+		return msg
+	end
+
+	-- Russianize ;)
 	if string.find(msg, "^RU%s+") then
 		msg = string.gsub(msg, "^RU%s*", '')
 		if system ~= 'SAY' and system ~= 'YELL' then
