@@ -1,4 +1,4 @@
-## Interface: 60200
+## Interface: 70000
 ## Title: WoW Dings
 ## Version: @project-version@
 ## Author: @project-author@
