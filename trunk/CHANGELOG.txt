@@ -1,3 +1,8 @@
+==v1.3.2==
+
+Bugfixes with some combinations.
+Messages sent via /say and /yell are no longer altered, as expected.
+
 ==v1.3.1==
 
 RolePlay Broadcast protocol messages (Total RP etc.) are no longer altered.
