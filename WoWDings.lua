@@ -8,7 +8,7 @@
 -- @param string language
 -- @param string target
 function WoWDings_SendChatMessage(msg, system, language, target)
-	WoWDings_OldSendChatMessage(WoWDings_Transform(msg), system, language, target)
+	WoWDings_OldSendChatMessage(WoWDings_Transform(msg, system), system, language, target)
 end
 
 -- hook SendChatMessage function
@@ -52,8 +52,9 @@ BNSetCustomMessage = WoWDings_BNSetCustomMessage
 
 -- Perform text replacements
 -- @param string msg
+-- @param string system
 -- @return string
-function WoWDings_Transform(msg)
+function WoWDings_Transform(msg, system)
 	local range, codes, code, symbol, ranges
 
 	-- Role Play Broadcasting message: do not transform
@@ -62,11 +63,9 @@ function WoWDings_Transform(msg)
 	end
 
 	-- Russianize ;)
-	if string.find(msg, "^RU%s+") then
+	if string.find(msg, "^RU%s+") and system ~= 'SAY' and system ~= 'YELL' then
 		msg = string.gsub(msg, "^RU%s*", '')
-		if system ~= 'SAY' and system ~= 'YELL' then
-			msg = WoWDings_Russianize(msg)
-		end
+		msg = WoWDings_Russianize(msg)
 	end
 
 	-- Addon download link
@@ -115,12 +114,14 @@ function WoWDings_Transform(msg)
 		msg = string.gsub(msg, "%(t%)",      '%%t')
 	end
 
-	if system ~= 'SAY' then
+	if system ~= 'SAY' and system ~= 'YELL' then
 		for _, ranges in pairs(WOWDINGS) do
-			for _, range in pairs(ranges) do
+			local i
+			for i = table.getn(ranges), 1, -1 do
+				range = ranges[i]
 				for symbol, codes in pairs(range) do
 					for _, code in pairs(codes) do
-						msg = string.gsub(msg, code, symbol)
+						msg = WoWDings_StrReplace(msg, code, symbol)
 					end
 				end
 			end
@@ -130,6 +131,30 @@ function WoWDings_Transform(msg)
 	return msg
 end
 
+--- Replace string content by another one, without regexp
+-- @param str (string)
+-- @param search (string)
+-- @param replace (string)
+-- @return (string)
+
+function WoWDings_StrReplace(str, search, replace)
+	local function esc(x)
+		return (x:gsub('%%', '%%%%')
+		         :gsub('^%^', '%%^')
+		         :gsub('%$$', '%%$')
+		         :gsub('%(', '%%(')
+		         :gsub('%)', '%%)')
+		         :gsub('%.', '%%.')
+		         :gsub('%[', '%%[')
+		         :gsub('%]', '%%]')
+		         :gsub('%*', '%%*')
+		         :gsub('%+', '%%+')
+		         :gsub('%-', '%%-')
+		         :gsub('%?', '%%?'))
+	end
+
+	return string.gsub(str, esc(search), esc(replace))
+end
 
 -- Russianize text, because it's fun
 -- @param string msg
