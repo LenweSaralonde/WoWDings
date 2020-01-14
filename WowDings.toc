@@ -1,4 +1,4 @@
-## Interface: 80205
+## Interface: 80300
 ## Title: WoW Dings
 ## Version: @project-version@
 ## Author: @project-author@
