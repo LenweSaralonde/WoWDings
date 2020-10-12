@@ -2,7 +2,4 @@ package-as: WowDings
 
 manual-changelog:
     filename: CHANGELOG.txt
-    markup-type: creole
-
-ignore:
-    - CHANGELOG.txt
+    markup-type: markdown

@@ -1,6 +1,5 @@
 -- WoWDings
--- Version @project-version@
--- By @project-author@
+-- By LenweSaralonde
 
 -- SendChatMessage hook function
 -- @param string msg
