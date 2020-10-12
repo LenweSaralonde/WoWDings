@@ -4,7 +4,6 @@ Changelog
 v1.3.4
 ------
 * Updated for WoW Shadowlands 9.0.1 prepatch
-* Messages sent via `/say` and `/yell` are no longer altered, as expected.
 
 v1.3.3
 ------
