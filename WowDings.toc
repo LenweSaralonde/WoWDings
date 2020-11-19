@@ -1,6 +1,6 @@
-## Interface: 90001
+## Interface: 90002
 ## Title: WoW Dings
-## Version: 1.3.4
+## Version: 1.3.5
 ## Author: LenweSaralonde
 ## Notes: Allows you to send special characters into chat messages.
 

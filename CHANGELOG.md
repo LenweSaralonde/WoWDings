@@ -1,6 +1,10 @@
 Changelog
 =========
 
+v1.3.5
+------
+* Updated for WoW Shadowlands 9.0.2
+
 v1.3.4
 ------
 * Updated for WoW Shadowlands 9.0.1 prepatch
