@@ -1,6 +1,10 @@
 Changelog
 =========
 
+v1.3.6
+------
+* TOC update for WoW patch 9.0.5.
+
 v1.3.5
 ------
 * Updated for WoW Shadowlands 9.0.2
