@@ -1,6 +1,10 @@
 Changelog
 =========
 
+v1.4.0
+------
+* Added `(pin)` for current map location.
+
 v1.3.6
 ------
 * TOC update for WoW patch 9.0.5.
