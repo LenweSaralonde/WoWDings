@@ -48,6 +48,30 @@ end
 WoWDings_OldBNSetCustomMessage = BNSetCustomMessage
 BNSetCustomMessage = WoWDings_BNSetCustomMessage
 
+-- Gets current map pin location
+-- @return string
+function WoWDings_MapPin()
+	if C_Map and C_Map.GetBestMapForUnit and C_Map.GetPlayerMapPosition then
+		local mapID = C_Map.GetBestMapForUnit('player')
+		local pos = C_Map.GetPlayerMapPosition(mapID, 'player')
+		local x = floor(pos.x * 10000)
+		local y = floor(pos.y * 10000)
+		return "|cffffff00|Hworldmap:" .. mapID .. ":" .. x .. ":" .. y .. "|h[" .. MAP_PIN_HYPERLINK .. "]|h|r"
+	end
+
+	return WoWDings_Here()
+end
+
+-- Gets current location
+-- @return string
+function WoWDings_Here()
+	local location = GetRealZoneText()
+	if (GetSubZoneText() ~= "") then
+		location = location .. ', ' .. GetSubZoneText()
+	end
+
+	return location
+end
 
 -- Perform text replacements
 -- @param string msg
@@ -71,11 +95,10 @@ function WoWDings_Transform(msg, system)
 	msg = string.gsub(msg, "%(WD%)", WOWDINGS_AD)
 
 	-- Current location
-	local location = GetRealZoneText()
-	if (GetSubZoneText() ~= "") then
-		location = location .. ', ' .. GetSubZoneText()
-	end
-	msg = string.gsub(msg, "%(here%)", location)
+	msg = string.gsub(msg, "%(here%)", WoWDings_Here())
+
+	-- Map pin
+	msg = string.gsub(msg, "%(pin%)", WoWDings_MapPin())
 
 	-- Full target info
 	local target, realm = UnitName('target')

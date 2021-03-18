@@ -7,6 +7,9 @@ Also works in Battle.net discussions.
 
 Doesn't work for `/say`, `/yell` and `/raidwarning` messages.
 
-Also implements macro shortcuts for your current location `(here)` and detailed information about targeted player `(t)`.
+Also implements the following macro shortcuts:
+* `(here)` Name of your current location
+* `(pin)` World map pin of your current location (WoW Retail only)
+* `(t)` Detailed information about the targeted player
 
 Type `/wd` to display the list of available symbols.
