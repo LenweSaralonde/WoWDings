@@ -54,6 +54,9 @@ function WoWDings_MapPin()
 	if C_Map and C_Map.GetBestMapForUnit and C_Map.GetPlayerMapPosition then
 		local mapID = C_Map.GetBestMapForUnit('player')
 		local pos = C_Map.GetPlayerMapPosition(mapID, 'player')
+		if pos == nil then
+			return WoWDings_Here()
+		end
 		local x = floor(pos.x * 10000)
 		local y = floor(pos.y * 10000)
 		return "|cffffff00|Hworldmap:" .. mapID .. ":" .. x .. ":" .. y .. "|h[" .. MAP_PIN_HYPERLINK .. "]|h|r"

@@ -1,5 +1,8 @@
 Changelog
 =========
+v1.4.1
+------
+* Fixed messages broken in instances.
 
 v1.4.0
 ------
