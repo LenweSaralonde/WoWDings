@@ -1,6 +1,11 @@
 Changelog
 =========
 
+v1.4.1
+------
+* TOC update for WoW Classic patch 1.13.7
+* Align version number with Retail
+
 v1.3.5
 ------
 * Updated for WoW Classic 1.13.6
