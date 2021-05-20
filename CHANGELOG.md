@@ -1,5 +1,10 @@
 Changelog
 =========
+
+v1.5.0
+------
+* Created TOCs for WoW Retail, Classic and Burning Crusade Classic.
+
 v1.4.1
 ------
 * Fixed messages broken in instances.

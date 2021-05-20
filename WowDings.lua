@@ -51,7 +51,7 @@ BNSetCustomMessage = WoWDings_BNSetCustomMessage
 -- Gets current map pin location
 -- @return string
 function WoWDings_MapPin()
-	if C_Map and C_Map.GetBestMapForUnit and C_Map.GetPlayerMapPosition then
+	if C_Map and C_Map.GetBestMapForUnit and C_Map.GetPlayerMapPosition and MAP_PIN_HYPERLINK then
 		local mapID = C_Map.GetBestMapForUnit('player')
 		local pos = C_Map.GetPlayerMapPosition(mapID, 'player')
 		if pos == nil then
