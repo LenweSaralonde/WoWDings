@@ -1,6 +1,10 @@
 Changelog
 =========
 
+v1.5.1
+------
+* TOC bump for WoW 9.1.5.
+
 v1.5.0
 ------
 * Created TOCs for WoW Retail, Classic and Burning Crusade Classic.
