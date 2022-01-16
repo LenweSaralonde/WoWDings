@@ -1,6 +1,10 @@
 Changelog
 =========
 
+v1.5.2
+------
+* Fixed bug preventing to send chat messages from an unknown area.
+
 v1.5.1
 ------
 * TOC bump for WoW 9.1.5.
