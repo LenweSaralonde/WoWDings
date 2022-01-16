@@ -68,7 +68,7 @@ end
 -- Gets current location
 -- @return string
 function WoWDings_Here()
-	local location = GetRealZoneText()
+	local location = GetRealZoneText() or UNKNOWN
 	if (GetSubZoneText() ~= "") then
 		location = location .. ', ' .. GetSubZoneText()
 	end
