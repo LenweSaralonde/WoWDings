@@ -1,4 +1,4 @@
-## Interface: 20502
+## Interface: 20503
 ## Title: WoW Dings
 ## Version: 1.5.2
 ## Author: LenweSaralonde
