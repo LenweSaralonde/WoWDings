@@ -1,6 +1,10 @@
 Changelog
 =========
 
+v1.5.3
+------
+* TOC bump for WoW 9.2 and WoW Classic 1.14.2.
+
 v1.5.2
 ------
 * Fixed bug preventing to send chat messages from an unknown area.
