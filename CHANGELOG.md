@@ -1,6 +1,10 @@
 Changelog
 =========
 
+v1.5.4
+------
+* Fixed bug preventing to use chat during Trial of Style.
+
 v1.5.3
 ------
 * TOC bump for WoW 9.2 and WoW Classic 1.14.2.
