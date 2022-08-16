@@ -1,4 +1,4 @@
-## Interface: 90205
+## Interface: 90207
 ## Title: WoW Dings
 ## Version: 1.5.5
 ## Author: LenweSaralonde
