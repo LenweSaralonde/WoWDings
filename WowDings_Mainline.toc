@@ -1,4 +1,4 @@
-## Interface: 90207
+## Interface: 100000
 ## Title: WoW Dings
 ## Version: 1.5.6
 ## Author: LenweSaralonde
