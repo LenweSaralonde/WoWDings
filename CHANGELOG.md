@@ -1,6 +1,10 @@
 Changelog
 =========
 
+v1.5.7
+------
+* TOC bump for WoW patch 10.0.0.
+
 v1.5.6
 ------
 * Added support for Wrath of the Lich King Classic.
