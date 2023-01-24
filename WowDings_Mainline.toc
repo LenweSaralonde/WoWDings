@@ -1,4 +1,4 @@
-## Interface: 100002
+## Interface: 100005
 ## Title: WoW Dings
 ## Version: 1.5.8
 ## Author: LenweSaralonde
