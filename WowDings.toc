@@ -1,6 +1,7 @@
-## Interface: 100007
+## Interface: 100100
 ## Title: WoW Dings
-## Version: 1.5.10
+## Version: 1.5.11
+## IconTexture: Interface\AddOns\WoWDings\WoWDings.blp
 ## Author: LenweSaralonde
 ## Notes: Allows you to send special characters into chat messages.
 
