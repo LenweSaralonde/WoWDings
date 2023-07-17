@@ -1,4 +1,4 @@
-## Interface: 30401
+## Interface: 30402
 ## Title: WoW Dings
 ## Version: 1.5.11
 ## Author: LenweSaralonde
