@@ -1,4 +1,4 @@
-## Interface: 11404
+## Interface: 11501
 ## Title: WoW Dings
 ## Version: 1.5.12
 ## Author: LenweSaralonde
