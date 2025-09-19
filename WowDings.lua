@@ -11,8 +11,13 @@ function WoWDings_SendChatMessage(msg, system, language, target)
 end
 
 -- hook SendChatMessage function
-WoWDings_OldSendChatMessage = C_ChatInfo.SendChatMessage
-C_ChatInfo.SendChatMessage = WoWDings_SendChatMessage
+if C_ChatInfo.SendChatMessage then
+	WoWDings_OldSendChatMessage = C_ChatInfo.SendChatMessage
+	C_ChatInfo.SendChatMessage = WoWDings_SendChatMessage
+else
+	WoWDings_OldSendChatMessage = SendChatMessage
+	SendChatMessage = WoWDings_SendChatMessage
+end
 
 -- BNSendWhisper hook function
 -- @param integer id
