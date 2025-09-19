@@ -1,6 +1,10 @@
 Changelog
 =========
 
+v1.7.0
+------
+* Fixed for WoW Retail 11.2.0, WoW Classic 5.5.0 and WoW Classic Era 1.15.7.
+
 v1.6.1
 ------
 * Added add-on category.

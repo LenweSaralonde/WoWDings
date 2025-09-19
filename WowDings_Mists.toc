@@ -1,6 +1,6 @@
 ## Interface: 50500
 ## Title: WoW Dings
-## Version: 1.6.1
+## Version: 1.7.0
 ## Author: LenweSaralonde
 ## Notes: Allows you to send special characters into chat messages.
 ## Category-enUS: Chat
