@@ -1,6 +1,11 @@
 Changelog
 =========
 
+v1.8.0
+------
+* TOC bump for WoW Midnight 12.0.0 prepatch.
+* Added TBC classic support.
+
 v1.7.0
 ------
 * Fixed for WoW Retail 11.2.0, WoW Classic 5.5.0 and WoW Classic Era 1.15.7.
