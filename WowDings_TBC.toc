@@ -1,4 +1,4 @@
-## Interface: 50503
+## Interface: 20505
 ## Title: WoW Dings
 ## Version: 1.7.0
 ## Author: LenweSaralonde
