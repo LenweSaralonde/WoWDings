@@ -110,7 +110,7 @@ function WoWDings_Transform(msg, system)
 
 	-- Full target info
 	local target, realm = UnitName('target')
-	if (target ~= nil) then
+	if canaccessvalue(target) and (target ~= nil) then
 		if (realm ~= nil) then
 			target = target .. '-' .. realm
 		end
