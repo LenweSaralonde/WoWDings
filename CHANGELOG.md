@@ -1,6 +1,10 @@
 Changelog
 =========
 
+v1.8.1
+------
+* Fixed access to secret value bug in dungeons.
+
 v1.8.0
 ------
 * TOC bump for WoW Midnight 12.0.0 prepatch.
