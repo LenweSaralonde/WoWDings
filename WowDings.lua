@@ -1,5 +1,6 @@
 -- WoWDings
 -- By LenweSaralonde
+local canaccessvalue = canaccessvalue or function() return true end
 
 -- SendChatMessage hook function
 -- @param string msg
