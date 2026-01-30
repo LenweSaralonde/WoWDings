@@ -1,6 +1,10 @@
 Changelog
 =========
 
+v1.8.2
+------
+* Fixed LUA error in WoW Classic.
+
 v1.8.1
 ------
 * Fixed access to secret value bug in dungeons.
