@@ -1,6 +1,10 @@
 Changelog
 =========
 
+v1.8.3
+------
+* TOC bump for WoW Midnight 12.0.1 prepatch.
+
 v1.8.2
 ------
 * Fixed LUA error in WoW Classic.
