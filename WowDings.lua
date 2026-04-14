@@ -2,57 +2,11 @@
 -- By LenweSaralonde
 local canaccessvalue = canaccessvalue or function() return true end
 
--- SendChatMessage hook function
--- @param string msg
--- @param string system
--- @param string language
--- @param string target
-function WoWDings_SendChatMessage(msg, system, language, target)
-	WoWDings_OldSendChatMessage(WoWDings_Transform(msg, system), system, language, target)
+--- Return true if the game is in messaging lockdown (ie during a boss fight in a dungeon)
+-- @return inLockdown (boolean)
+function WoWDings_InChatMessagingLockdown()
+	return C_ChatInfo and C_ChatInfo.InChatMessagingLockdown and C_ChatInfo.InChatMessagingLockdown()
 end
-
--- hook SendChatMessage function
-if C_ChatInfo.SendChatMessage then
-	WoWDings_OldSendChatMessage = C_ChatInfo.SendChatMessage
-	C_ChatInfo.SendChatMessage = WoWDings_SendChatMessage
-else
-	WoWDings_OldSendChatMessage = SendChatMessage
-	SendChatMessage = WoWDings_SendChatMessage
-end
-
--- BNSendWhisper hook function
--- @param integer id
--- @param string  text
-function WoWDings_BNSendWhisper(id, text)
-	WoWDings_OldBNSendWhisper(id, WoWDings_Transform(text))
-end
-
--- hook BNSendWhisper function
-WoWDings_OldBNSendWhisper = BNSendWhisper
-BNSendWhisper = WoWDings_BNSendWhisper
-
-
--- BNSendConversationMessage hook function
--- @param integer channel
--- @param string  text
-function WoWDings_BNSendConversationMessage(channel, text)
-	WoWDings_OldBNSendConversationMessage(channel, WoWDings_Transform(text))
-end
-
--- hook BNSendConversationMessage function
-WoWDings_OldBNSendConversationMessage = BNSendConversationMessage
-BNSendConversationMessage = WoWDings_BNSendConversationMessage
-
-
--- BNSetCustomMessage hook function
--- @param string text
-function WoWDings_BNSetCustomMessage(text)
-	WoWDings_OldBNSetCustomMessage(WoWDings_Transform(text))
-end
-
--- hook BNSetCustomMessage function
-WoWDings_OldBNSetCustomMessage = BNSetCustomMessage
-BNSetCustomMessage = WoWDings_BNSetCustomMessage
 
 -- Gets current map pin location
 -- @return string
@@ -87,6 +41,11 @@ end
 -- @param string system
 -- @return string
 function WoWDings_Transform(msg, system)
+	-- Don't transforme while in messaging lockdown
+	if WoWDings_InChatMessagingLockdown() then
+		return msg
+	end
+
 	local range, codes, code, symbol, ranges
 
 	-- Role Play Broadcasting message: do not transform
@@ -201,6 +160,34 @@ function WoWDings_Russianize(msg)
 	end
 
 	return msg
+end
+
+-- Apply hooks
+if ChatFrameEditBoxMixin and ChatFrameEditBoxMixin.OnPreSendText and EventRegistry and EventRegistry.RegisterCallback then
+	EventRegistry:RegisterCallback("ChatFrame.OnEditBoxPreSendText", function(event, chatBox)
+		local text = chatBox:GetText();
+		if canaccessvalue(chatBox) then
+			chatBox:SetText(WoWDings_Transform(text))
+		end
+	end, self);
+else
+	-- Old school way, using dirty hooks
+
+	local function getSubstituteChatMessageBeforeSendHook(originalFunction)
+		return function(msg)
+			msg = originalFunction(msg)
+			msg = WoWDings_Transform(msg)
+			return msg
+		end
+	end
+
+	if ChatFrameUtil and ChatFrameUtil.SubstituteChatMessageBeforeSend then
+		ChatFrameUtil.SubstituteChatMessageBeforeSend =
+			getSubstituteChatMessageBeforeSendHook(ChatFrameUtil.SubstituteChatMessageBeforeSend)
+	else
+		SubstituteChatMessageBeforeSend =
+			getSubstituteChatMessageBeforeSendHook(SubstituteChatMessageBeforeSend)
+	end
 end
 
 -- /wd command
