@@ -1,4 +1,4 @@
-## Interface: 120001
+## Interface: 120005
 ## Title: WoW Dings
 ## Version: 1.8.3
 ## IconTexture: Interface\AddOns\WoWDings\WoWDings.blp
