@@ -1,4 +1,4 @@
-## Interface: 50503
+## Interface: 50504
 ## Title: WoW Dings
 ## Version: 1.9.0
 ## Author: LenweSaralonde
