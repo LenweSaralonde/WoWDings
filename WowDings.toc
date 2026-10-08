@@ -1,4 +1,4 @@
-## Interface: 120100
+## Interface: 120100, 50504, 20506, 11509
 ## Title: WoW Dings
 ## Version: 1.9.1
 ## IconTexture: Interface\AddOns\WoWDings\WoWDings.blp
